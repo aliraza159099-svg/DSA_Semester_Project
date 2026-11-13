@@ -3,19 +3,14 @@
 
 int main() {
 
-    InitWindow(750,750,"game");
-
-    float x = 750 /2 ;
-    float y = 750 / 2;
-    float velocity = 0.2;
+    int window_width = 700;
+    int window_height = 700;
+    InitWindow(window_width ,window_height,"Snake Game");
 
     while (WindowShouldClose() == false) {
         BeginDrawing();
 
         ClearBackground(BLACK);
-       DrawText("Balgheri", 300 , 300 , 20, GREEN);
-
-        
 
         EndDrawing();
     }
