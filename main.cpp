@@ -7,14 +7,15 @@ int cellSize = 30;
 int cellCount = 25;
 
 //creating the food obj
-struct Food
+class Food
 {
     public:
         Vector2 position = {5,6};
-        Texture2D texture;
+        Texture2D texture = {0};
         //the food constructor
         Food(){
             Image image = LoadImage("Graphics/food.png");
+            ImageResize(&image,cellSize,cellSize);
             texture = LoadTextureFromImage(image);
             UnloadImage(image);
 
@@ -22,6 +23,12 @@ struct Food
         //the food destructor
         ~Food(){
             UnloadTexture(texture);
+        }
+        void unload() {
+            if(texture.id > 0){
+                UnloadTexture(texture);
+                texture = {0};
+            }
         }
         //the draw method to draw the food object
         void draw(){
@@ -36,7 +43,7 @@ int main() {
     SetTargetFPS(60);//set the speed of the moving object same for all devices
 
     //food oject
-    Food food = Food();
+    Food food;
 
     while (WindowShouldClose() == false) //the loop will run until escape is not pressed or window isn't closed
     {
@@ -44,14 +51,29 @@ int main() {
         BeginDrawing();
 
         //set the background to green 
-        ClearBackground(green);
+        ClearBackground(BLACK);
 
         //calling the method of Food
         food.draw();
+
+        if(IsKeyPressed(KEY_UP)){
+            food.position.y -= 2;
+        }
+         if(IsKeyPressed(KEY_DOWN)){
+            food.position.y +=2;
+        }
+         if(IsKeyPressed(KEY_RIGHT)){
+            food.position.x +=2;
+        }
+         if(IsKeyPressed(KEY_LEFT)){
+            food.position.x -=2;
+        }
+        
 
         //end the drawing
         EndDrawing();
 
     }
+    food.unload();
     CloseWindow();
 }
