@@ -21,7 +21,8 @@ void Snake::Draw()
         DrawRectangle(segment_of_snake.x, segment_of_snake.y, segment_of_snake.width, segment_of_snake.height, WHITE);
     }
 };
-void Snake::Update() {};
+void Snake::Update() {
+};
 
 Snake::~Snake()
 {

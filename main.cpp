@@ -23,11 +23,12 @@ int main()
         // set the background to green
         ClearBackground(BLACK);
 
-        // calling the method of Food
-        food.draw();
-        // end the drawing
+        // // calling the method of Food
+        // food.draw();
+        // // end the drawing
 
-        snake.Draw();
+        // snake.Draw();
+
         EndDrawing();
     }
     // Unloading the food textures;
