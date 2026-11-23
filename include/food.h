@@ -1,5 +1,6 @@
 #ifndef H_FOOD
 #define H_FOOD
+#include "raylib.h"
 
 class Food
 {
@@ -13,6 +14,7 @@ public:
     void unload();
     // the draw method to draw the food object
     void draw();
+    Vector2 GenerateRandomPos();
 };
 
 #endif

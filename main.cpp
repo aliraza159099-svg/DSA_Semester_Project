@@ -24,10 +24,10 @@ int main()
         ClearBackground(BLACK);
 
         // // calling the method of Food
-        // food.draw();
+        food.draw();
         // // end the drawing
 
-        // snake.Draw();
+        snake.Draw();
 
         EndDrawing();
     }
