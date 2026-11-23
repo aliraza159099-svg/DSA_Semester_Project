@@ -9,6 +9,7 @@ Food::Food()
     ImageResize(&image, CELL_SIZE, CELL_SIZE);
     texture = LoadTextureFromImage(image);
     UnloadImage(image);
+    position = GenerateRandomPos();
 }
 // the food destructor
 Food::~Food()
@@ -27,4 +28,10 @@ void Food::unload()
 void Food::draw()
 {
     DrawTexture(texture, position.x * CELL_SIZE, position.y * CELL_SIZE, WHITE);
+}
+//method to generate random numbers for the position of the fruit
+Vector2 GenerateRandomPos(){
+    float x = GetRandomValue(0,CELL_COUNT -1 );
+    float y = GetRandomValue(0 ,CELL_COUNT -1 );
+    return Vector2{x,y};
 }
